@@ -20,7 +20,9 @@ class Solver
 	public:
 	
 	Solver(){}
-	~Solver()
+	~Solver(){}
+
+	static void DestroyMap()
 	{
 		for (unsigned int i = 0; i < SnakeMap.size(); i++)
 		{ 

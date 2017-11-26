@@ -62,6 +62,8 @@ int main(int argc, char *args[])
 		
 		printf("\n");
 		
+		Solver::DestroyMap();
+
 		for (unsigned int i = 0; i < dim; i++)
 		{		
 			delete[] grid[i];
