@@ -60,7 +60,7 @@ int main(int argc, char *args[])
 
 		if (!found)
 		{
-			printf("#TestCase %d: FAIL\n", t);
+			printf("# TestCase %d: FAIL\n", t);
 		}
 		
 		printf("\n");
