@@ -8,17 +8,20 @@
  * the following format:
  * 
  * D1          -> Grid's dimmension D1 of the first test case
- * V1,V2,V3... -> D values of the first row of the grid
- * ...         -> Remaining rows of the current grid
+ * V1,V2,V3... -> D1 values of the first row of the grid
+ * ...         -> Remaining D1 - 1 rows of the current grid
  * D2          -> Grid's dimmension D2 of the second test case
- * ...         -> Remaining rows of the current grid
+ * ...         -> Remaining D2 rows of the current grid
  *
- * Output will be in the following format:
- * # Test case <id>
- * # Sum of integers: <found_value>
- * First snake (integar value and position in the grid)
- * Second snake (integar value and position in the grid)
+ * Output will be either:
+ * # Test <id>:<found_sum_of_integers>
+ * First snake (integar value and position (x, y) in the grid)
+ * Second snake (integar value and position (x, y) in the grid)
+ * 
+ * Or
  *
+ * # Test <id>: FAIL
+ * 
  */
 int main(int argc, char *args[])
 {
@@ -46,7 +49,7 @@ int main(int argc, char *args[])
 				int sum = 0;
 				if (Solver::FindSevenSnake(grid, dim, snake, i, j, 0, &sum))
 				{
-					printf("# TestCase %d\n# Sum of integers: %d\n", t, sum);	
+					printf("# TestCase %d: %d\n", t, sum);	
 					SnakeCell::PrintSnakeArray(snake[0]);
 					SnakeCell::PrintSnakeArray(snake[1]);
 					
@@ -57,7 +60,7 @@ int main(int argc, char *args[])
 
 		if (!found)
 		{
-			printf("#TestCase %d\nFAIL\n", t);
+			printf("#TestCase %d: FAIL\n", t);
 		}
 		
 		printf("\n");

@@ -1,11 +1,11 @@
 /*
  * Solver class with the core of the solution.
  *
- * The strategy used to solve the 7Snake problem is looking recursively for 7Snakes 
+ * The strategy used to solve the 7Snake problem was looking recursively for 7Snakes 
  * in a given grid until two distinct snakes with the same sum of integers be found.
  *
  * A hashtable is kept to group 7-snakes with the same sum of integers (sum of integers is key), 
- * so whenever a 7-sneak is added to the hash, it is checked whether it is distinct of the 
+ * so whenever a 7-sneak is added to the hash, it is checked whether it is distinct to the 
  * others with the same key. If so, the programs ends, otherwise it keeps searching. 
  *
  */
@@ -71,7 +71,7 @@ class Solver
 	{
 		snake[0][snakeSize].SetValues(grid[row][col], row, col);
 		
-		grid[row][col] = INVALID_INT;
+		grid[row][col] = VISITED_CELL;
 		
 		if (snakeSize == SNAKESIZE - 1)
 		{	
@@ -109,7 +109,7 @@ class Solver
 					(i == row + 1 && j == col + 1))
 					continue;
 
-				if (grid[i][j] == INVALID_INT)
+				if (grid[i][j] == VISITED_CELL)
 					continue;
 				
 				*snakeSum+=snake[0][snakeSize].GetValue();
